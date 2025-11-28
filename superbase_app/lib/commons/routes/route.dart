@@ -1,5 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:superbase_app/features/splash/splash_page.dart';
+
+import '../../features/home/home_page.dart';
 
 class Routes {
   static const splash = RoutePath('/');
@@ -34,9 +37,13 @@ final List<SpecialRoute> privateRoutes = <RoutePath>[
 ].map((e) => SpecialRoute(e.p)).toList();
 
 final List<GetPage> getPages = [
-  GetPage(name: Routes.splash.sp, page: () => Container()),
+  GetPage(
+    name: Routes.splash.sp,
+    page: () => SplashPage(),
+    binding: SplashBinding(),
+  ),
   GetPage(name: Routes.unauthorized.sp, page: () => Container()),
-  GetPage(name: Routes.main.sp, page: () => Container()),
+  GetPage(name: Routes.main.sp, page: () => HomePage(), binding: HomeBinding(),),
 ].map((e) => e.applyMiddleware()).toList();
 
 extension GetPageX on GetPage {

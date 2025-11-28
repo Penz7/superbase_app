@@ -8,26 +8,35 @@ import 'app_config.dart';
 import 'commons/routes/route.dart';
 import 'commons/widgets/app_life_cycle_overlay.dart';
 import 'commons/widgets/flavor_banner.dart';
+import 'controller/init_controller.dart';
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Env().getRemoteConfig();
   await initConfig();
-
+  await initControllers();
 
   /// Router
-  Get.lazyPut(()=>RouteService());
+  Get.put(RouteService());
 
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      key: _navigatorKey,
       routingCallback: (routing) {
         if (routing != null) {
           RouteService.to.updateRoute(routing.current);
