@@ -53,7 +53,7 @@ app.*.map.json
 
 # Auto-generate
 /lib/generated/assets.gen.dart
-/lib/generated/intl/
+/lib/generated/
 
 # Production information
 config.prod.json
