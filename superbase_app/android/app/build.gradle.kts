@@ -41,8 +41,14 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
 
-        applicationIdSuffix = dartEnvironmentVariables["APP_SUFFIX"]
-        resValue("string", "app_name", dartEnvironmentVariables["APP_NAME"] as String)
+        for (entry in dartEnvironmentVariables.entries) {
+            val key = entry.key
+            val value = entry.value
+            value?.let {
+                manifestPlaceholders[key] = it
+                resValue("string", key, it)
+            }
+        }
     }
 
     buildTypes {
