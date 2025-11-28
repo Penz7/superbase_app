@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:superbase_app/controller/system_controller.dart';
 import 'package:superbase_app/env.dart';
 
 import 'app_config.dart';
@@ -20,6 +21,13 @@ void main() async {
   /// Router
   Get.put(RouteService());
 
+  final systemController = Get.find<SystemController>();
+  WidgetsBinding.instance.addObserver(
+    LifecycleEventHandler(
+      resumeCallBack: () async => systemController.onAppForeground(),
+      suspendingCallBack: () async => systemController.onAppBackground(),
+    ),
+  );
   runApp(const App());
 }
 
@@ -73,5 +81,32 @@ class _AppState extends State<App> {
       ],
       supportedLocales: S.delegate.supportedLocales,
     );
+  }
+}
+
+
+class LifecycleEventHandler extends WidgetsBindingObserver {
+  final AsyncCallback resumeCallBack;
+  final AsyncCallback suspendingCallBack;
+
+  LifecycleEventHandler({
+    required this.resumeCallBack,
+    required this.suspendingCallBack,
+  });
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        await resumeCallBack();
+        break;
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        await suspendingCallBack();
+        break;
+      case AppLifecycleState.inactive:
+      default:
+        break;
+    }
   }
 }
