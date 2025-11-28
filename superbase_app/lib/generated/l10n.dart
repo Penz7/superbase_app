@@ -53,11 +53,6 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
-
-  /// `Con cặc`
-  String get concac {
-    return Intl.message('Con cặc', name: 'concac', desc: '', args: []);
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
