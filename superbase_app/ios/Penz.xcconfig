@@ -1,0 +1,11 @@
+//
+//  Penz.xcconfig
+//  Runner
+//
+//  Created by penz on 27/11/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+APP_NAME=SuperBase App
+APP_SUFFIX=

@@ -1,0 +1,34 @@
+{
+  "@@locale": "en",
+  "@agreePrivacy": {
+    "placeholders": {
+      "privacy": {
+        "type": "String"
+      },
+      "termsAndConditions": {
+        "type": "String"
+      }
+    }
+  },
+  "@days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@months": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@times": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+}

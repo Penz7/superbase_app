@@ -1,0 +1,57 @@
+name: superbase_app
+description: "a superbase_app with getx"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  json_annotation: ^4.9.0
+  get: ^4.7.3
+  sentry_flutter: ^9.8.0
+  flutter_svg: ^2.2.3
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.10.4
+  intl_utils: ^2.8.12
+  flutter_gen_runner: ^5.3.0
+  json_serializable: ^6.10.0
+
+dependency_overrides:
+  connectivity_plus: 7.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/generated
+  use_deferred_loading: false
+  localizely:
+    project_id: 77ab0725-7fe7-4188-8679-fe91fc6e38ef
+
+flutter_gen:
+  output: lib/generated/
+
+  integrations:
+    image: true
+    flutter_svg: true
+    rive: false
+    lottie: false

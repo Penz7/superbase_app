@@ -1,0 +1,5 @@
+{
+  "APP_NAME": "SuperBase App",
+  "FLAVOR": "staging",
+  "BASE_URL": "https:/stg.org"
+}

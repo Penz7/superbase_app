@@ -1,0 +1,5 @@
+{
+  "APP_NAME": "SuperBase App",
+  "FLAVOR": "production",
+  "BASE_URL": "https:/prod.org"
+}
