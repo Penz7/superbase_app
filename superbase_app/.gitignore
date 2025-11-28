@@ -56,9 +56,9 @@ app.*.map.json
 /lib/generated/colors.gen.dart
 
 # Production information
-.config.prod.json
-.config.dev.json
-.config.stg.json
+config.prod.json
+config.dev.json
+config.stg.json
 
 /fastlane
 /key
