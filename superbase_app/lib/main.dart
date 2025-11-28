@@ -41,6 +41,13 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
+  final ColorScheme lightScheme = ColorScheme.fromSeed(
+    seedColor: Colors.blue,
+    brightness: Brightness.light,
+    surface: const Color(0xFFFAFAFA),
+    onSurface: const Color(0xFF1C1B1F),
+  );
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -54,6 +61,13 @@ class _AppState extends State<App> {
       onGenerateTitle: (context) => 'SuperBase App',
       debugShowCheckedModeBanner: false,
       title: Env().appName,
+      theme: ThemeData(
+        colorScheme: lightScheme,
+        scaffoldBackgroundColor: lightScheme.surface,
+        cardTheme: CardThemeData(
+          color: lightScheme.surface,
+        ),
+      ),
       enableLog: kDebugMode,
       popGesture: !kIsWeb,
       defaultTransition: kIsWeb ? Transition.fadeIn : Transition.cupertino,
