@@ -57,11 +57,6 @@ android {
         create("production") {
             dimension = "app"
         }
-        create("staging") {
-            dimension = "app"
-            applicationId = "com.penz.superbase_app"
-            versionNameSuffix = ".stg"
-        }
         create("develop") {
             dimension = "app"
             applicationId = "com.penz.superbase_app"
