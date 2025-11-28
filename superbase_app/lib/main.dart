@@ -14,6 +14,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Env().getRemoteConfig();
   await initConfig();
+
+
+  /// Router
+  Get.lazyPut(()=>RouteService());
+
   runApp(const App());
 }
 
